@@ -21,11 +21,11 @@ class HomeScreen extends StatelessWidget {
             children: [
               const Text(
                 'Проверь знания Dart и Flutter',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
-                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 32),
               SizedBox(
@@ -41,9 +41,7 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => QuizScreen(
-                          viewModel: viewModel,
-                        ),
+                        builder: (_) => QuizScreen(viewModel: viewModel),
                       ),
                     );
                   },

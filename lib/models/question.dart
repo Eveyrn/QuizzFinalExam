@@ -1,5 +1,3 @@
-import 'answer_option.dart';
-
 class Question {
   final String question;
   final List<AnswerOption> answers;
