@@ -1,0 +1,134 @@
+[
+  {
+    "text": "Что такое StatelessWidget в Flutter?",
+    "options": [
+      "Виджет, который не имеет изменяемого состояния",
+      "Виджет, который может изменять свое состояние",
+      "Виджет для работы с базой данных",
+      "Виджет для анимаций"
+    ],
+    "correctIndex": 0,
+    "topic": "widgets"
+  },
+  {
+    "text": "Какой метод вызывается при создании StatefulWidget?",
+    "options": [
+      "build()",
+      "createState()",
+      "initWidget()",
+      "render()"
+    ],
+    "correctIndex": 1,
+    "topic": "widgets"
+  },
+  {
+    "text": "Что такое Hot Reload в Flutter?",
+    "options": [
+      "Полная перезагрузка приложения",
+      "Быстрое обновление UI без потери состояния",
+      "Функция для тестирования",
+      "Инструмент для отладки"
+    ],
+    "correctIndex": 1,
+    "topic": "widgets"
+  },
+  {
+    "text": "Какой тип данных в Dart является изменяемым?",
+    "options": [
+      "final",
+      "const",
+      "var",
+      "static"
+    ],
+    "correctIndex": 2,
+    "topic": "dart"
+  },
+  {
+    "text": "Что такое async и await в Dart?",
+    "options": [
+      "Ключевые слова для работы с потоками",
+      "Ключевые слова для асинхронного программирования",
+      "Методы для работы с базой данных",
+      "Операторы для работы с массивами"
+    ],
+    "correctIndex": 1,
+    "topic": "dart"
+  },
+  {
+    "text": "Какой оператор используется для проверки типа в Dart?",
+    "options": [
+      "typeof",
+      "instanceof",
+      "is",
+      "type"
+    ],
+    "correctIndex": 2,
+    "topic": "dart"
+  },
+  {
+    "text": "В какой папке находятся ресурсы приложения (изображения, файлы)?",
+    "options": [
+      "resources/",
+      "res/",
+      "assets/",
+      "files/"
+    ],
+    "correctIndex": 2,
+    "topic": "project"
+  },
+  {
+    "text": "Какой файл содержит зависимости Flutter-проекта?",
+    "options": [
+      "package.json",
+      "pubspec.yaml",
+      "dependencies.txt",
+      "build.gradle"
+    ],
+    "correctIndex": 1,
+    "topic": "project"
+  },
+  {
+    "text": "Что такое Navigator в Flutter?",
+    "options": [
+      "Инструмент для работы с картами",
+      "Менеджер маршрутов для навигации между экранами",
+      "Виджет для построения меню",
+      "Библиотека для работы с GPS"
+    ],
+    "correctIndex": 1,
+    "topic": "architecture"
+  },
+  {
+    "text": "Какой пакет используется для HTTP-запросов в Flutter?",
+    "options": [
+      "axios",
+      "fetch",
+      "http",
+      "request"
+    ],
+    "correctIndex": 2,
+    "topic": "architecture"
+  },
+  {
+    "text": "Что означает MVVM в архитектуре приложения?",
+    "options": [
+      "Model-View-ViewModel",
+      "Multi-View-Virtual-Model",
+      "Model-Visual-ViewModel",
+      "Main-View-ViewModel"
+    ],
+    "correctIndex": 0,
+    "topic": "architecture"
+  },
+  {
+    "text": "Какой виджет используется для создания списка в Flutter?",
+    "options": [
+      "List",
+      "ScrollView",
+      "ListView",
+      "ListBuilder"
+    ],
+    "correctIndex": 2,
+    "topic": "widgets"
+  }
+]
