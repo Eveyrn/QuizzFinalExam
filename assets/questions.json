@@ -1,134 +1,98 @@
 [
   {
-    "text": "Что такое StatelessWidget в Flutter?",
-    "options": [
-      "Виджет, который не имеет изменяемого состояния",
-      "Виджет, который может изменять свое состояние",
-      "Виджет для работы с базой данных",
-      "Виджет для анимаций"
-    ],
-    "correctIndex": 0,
-    "topic": "widgets"
+    "question": "Какой язык используется для разработки Flutter-приложений?",
+    "answers": [
+      { "text": "Kotlin", "isCorrect": false },
+      { "text": "Swift", "isCorrect": false },
+      { "text": "Dart", "isCorrect": true }
+    ]
   },
   {
-    "text": "Какой метод вызывается при создании StatefulWidget?",
-    "options": [
-      "build()",
-      "createState()",
-      "initWidget()",
-      "render()"
-    ],
-    "correctIndex": 1,
-    "topic": "widgets"
+    "question": "Что такое Widget во Flutter?",
+    "answers": [
+      { "text": "Экран приложения", "isCorrect": false },
+      { "text": "Основной строительный блок UI", "isCorrect": true },
+      { "text": "Контроллер логики", "isCorrect": false }
+    ]
   },
   {
-    "text": "Что такое Hot Reload в Flutter?",
-    "options": [
-      "Полная перезагрузка приложения",
-      "Быстрое обновление UI без потери состояния",
-      "Функция для тестирования",
-      "Инструмент для отладки"
-    ],
-    "correctIndex": 1,
-    "topic": "widgets"
+    "question": "В чём разница между StatelessWidget и StatefulWidget?",
+    "answers": [
+      { "text": "Stateless не может хранить состояние", "isCorrect": true },
+      { "text": "Stateful не обновляет UI", "isCorrect": false },
+      { "text": "Разницы нет", "isCorrect": false }
+    ]
   },
   {
-    "text": "Какой тип данных в Dart является изменяемым?",
-    "options": [
-      "final",
-      "const",
-      "var",
-      "static"
-    ],
-    "correctIndex": 2,
-    "topic": "dart"
+    "question": "Какой метод вызывается для перестройки UI в StatefulWidget?",
+    "answers": [
+      { "text": "build()", "isCorrect": false },
+      { "text": "setState()", "isCorrect": true },
+      { "text": "initState()", "isCorrect": false }
+    ]
   },
   {
-    "text": "Что такое async и await в Dart?",
-    "options": [
-      "Ключевые слова для работы с потоками",
-      "Ключевые слова для асинхронного программирования",
-      "Методы для работы с базой данных",
-      "Операторы для работы с массивами"
-    ],
-    "correctIndex": 1,
-    "topic": "dart"
+    "question": "Где обычно хранятся assets (картинки, шрифты) во Flutter?",
+    "answers": [
+      { "text": "lib/", "isCorrect": false },
+      { "text": "assets/", "isCorrect": true },
+      { "text": "android/", "isCorrect": false }
+    ]
   },
   {
-    "text": "Какой оператор используется для проверки типа в Dart?",
-    "options": [
-      "typeof",
-      "instanceof",
-      "is",
-      "type"
-    ],
-    "correctIndex": 2,
-    "topic": "dart"
+    "question": "Для чего используется FutureBuilder?",
+    "answers": [
+      { "text": "Для навигации", "isCorrect": false },
+      { "text": "Для работы с асинхронными данными", "isCorrect": true },
+      { "text": "Для хранения состояния", "isCorrect": false }
+    ]
   },
   {
-    "text": "В какой папке находятся ресурсы приложения (изображения, файлы)?",
-    "options": [
-      "resources/",
-      "res/",
-      "assets/",
-      "files/"
-    ],
-    "correctIndex": 2,
-    "topic": "project"
+    "question": "Какой HTTP-метод используется для получения данных?",
+    "answers": [
+      { "text": "POST", "isCorrect": false },
+      { "text": "GET", "isCorrect": true },
+      { "text": "DELETE", "isCorrect": false }
+    ]
   },
   {
-    "text": "Какой файл содержит зависимости Flutter-проекта?",
-    "options": [
-      "package.json",
-      "pubspec.yaml",
-      "dependencies.txt",
-      "build.gradle"
-    ],
-    "correctIndex": 1,
-    "topic": "project"
+    "question": "Что такое MVVM?",
+    "answers": [
+      { "text": "Архитектура UI", "isCorrect": false },
+      { "text": "Архитектурный паттерн", "isCorrect": true },
+      { "text": "Тип виджета", "isCorrect": false }
+    ]
   },
   {
-    "text": "Что такое Navigator в Flutter?",
-    "options": [
-      "Инструмент для работы с картами",
-      "Менеджер маршрутов для навигации между экранами",
-      "Виджет для построения меню",
-      "Библиотека для работы с GPS"
-    ],
-    "correctIndex": 1,
-    "topic": "architecture"
+    "question": "Какая роль у ViewModel в MVVM?",
+    "answers": [
+      { "text": "Отрисовка UI", "isCorrect": false },
+      { "text": "Хранение и обработка логики", "isCorrect": true },
+      { "text": "Работа с HTTP напрямую", "isCorrect": false }
+    ]
   },
   {
-    "text": "Какой пакет используется для HTTP-запросов в Flutter?",
-    "options": [
-      "axios",
-      "fetch",
-      "http",
-      "request"
-    ],
-    "correctIndex": 2,
-    "topic": "architecture"
+    "question": "Что означает принцип «чистой архитектуры»?",
+    "answers": [
+      { "text": "Зависимости направлены внутрь", "isCorrect": true },
+      { "text": "Вся логика в UI", "isCorrect": false },
+      { "text": "Нет слоёв", "isCorrect": false }
+    ]
   },
   {
-    "text": "Что означает MVVM в архитектуре приложения?",
-    "options": [
-      "Model-View-ViewModel",
-      "Multi-View-Virtual-Model",
-      "Model-Visual-ViewModel",
-      "Main-View-ViewModel"
-    ],
-    "correctIndex": 0,
-    "topic": "architecture"
+    "question": "Как осуществляется навигация между экранами во Flutter?",
+    "answers": [
+      { "text": "Navigator.push", "isCorrect": true },
+      { "text": "setState()", "isCorrect": false },
+      { "text": "FutureBuilder", "isCorrect": false }
+    ]
   },
   {
-    "text": "Какой виджет используется для создания списка в Flutter?",
-    "options": [
-      "List",
-      "ScrollView",
-      "ListView",
-      "ListBuilder"
-    ],
-    "correctIndex": 2,
-    "topic": "widgets"
+    "question": "Какой файл является точкой входа Flutter-приложения?",
+    "answers": [
+      { "text": "home_screen.dart", "isCorrect": false },
+      { "text": "main.dart", "isCorrect": true },
+      { "text": "pubspec.yaml", "isCorrect": false }
+    ]
   }
 ]

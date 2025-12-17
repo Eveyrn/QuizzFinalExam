@@ -15,9 +15,10 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final total = viewModel.totalQuestions;
+    final total = viewModel.total;
     final correct = viewModel.correctAnswers;
-    final percent = (correct / total) * 100;
+    final double percent =
+    total == 0 ? 0.0 : (correct / total) * 100.0;
 
     return Scaffold(
       appBar: AppBar(

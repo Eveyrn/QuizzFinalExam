@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import '../../data/question_repository.dart';
 import '../../viewmodels/quiz_viewmodel.dart';
 import 'quiz_screen.dart';
@@ -30,18 +32,18 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 32),
               SizedBox(
                 width: double.infinity,
+                height: 52,
                 child: ElevatedButton(
-                  onPressed: () async {
-                    final viewModel = QuizViewModel(
-                      QuestionRepository(),
-                    );
-
-                    await viewModel.loadQuiz();
-
+                  onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => QuizScreen(viewModel: viewModel),
+                        builder: (_) => ChangeNotifierProvider(
+                          create: (_) => QuizViewModel(
+                            QuestionRepository(),
+                          )..loadQuiz(),
+                          child: const QuizScreen(),
+                        ),
                       ),
                     );
                   },
