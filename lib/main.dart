@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'ui/screens/home_screen.dart';
+
+import 'ui/screens/splash_screen.dart';
 import 'viewmodels/home_viewmodel.dart';
 
 void main() {
@@ -18,10 +19,12 @@ class QuizApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.deepPurple,
+          ),
           scaffoldBackgroundColor: const Color(0xFFF5F6FA),
         ),
-        home: const HomeScreen(),
+        home: const SplashScreen(), // ← ВАЖНО
       ),
     );
   }
