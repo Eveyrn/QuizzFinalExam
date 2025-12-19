@@ -4,6 +4,7 @@
     "answers": [
       { "text": "Kotlin", "isCorrect": false },
       { "text": "Swift", "isCorrect": false },
+      { "text": "Java", "isCorrect": false },
       { "text": "Dart", "isCorrect": true }
     ]
   },
@@ -12,7 +13,8 @@
     "answers": [
       { "text": "Экран приложения", "isCorrect": false },
       { "text": "Основной строительный блок UI", "isCorrect": true },
-      { "text": "Контроллер логики", "isCorrect": false }
+      { "text": "Контроллер логики", "isCorrect": false },
+      { "text": "Сервис для работы с данными", "isCorrect": false }
     ]
   },
   {
@@ -20,7 +22,8 @@
     "answers": [
       { "text": "Stateless не может хранить состояние", "isCorrect": true },
       { "text": "Stateful не обновляет UI", "isCorrect": false },
-      { "text": "Разницы нет", "isCorrect": false }
+      { "text": "Разницы нет", "isCorrect": false },
+      { "text": "Stateless работает только с API", "isCorrect": false }
     ]
   },
   {
@@ -28,7 +31,8 @@
     "answers": [
       { "text": "build()", "isCorrect": false },
       { "text": "setState()", "isCorrect": true },
-      { "text": "initState()", "isCorrect": false }
+      { "text": "initState()", "isCorrect": false },
+      { "text": "dispose()", "isCorrect": false }
     ]
   },
   {
@@ -36,7 +40,8 @@
     "answers": [
       { "text": "lib/", "isCorrect": false },
       { "text": "assets/", "isCorrect": true },
-      { "text": "android/", "isCorrect": false }
+      { "text": "android/", "isCorrect": false },
+      { "text": "build/", "isCorrect": false }
     ]
   },
   {
@@ -44,7 +49,8 @@
     "answers": [
       { "text": "Для навигации", "isCorrect": false },
       { "text": "Для работы с асинхронными данными", "isCorrect": true },
-      { "text": "Для хранения состояния", "isCorrect": false }
+      { "text": "Для хранения состояния", "isCorrect": false },
+      { "text": "Для анимаций", "isCorrect": false }
     ]
   },
   {
@@ -52,7 +58,8 @@
     "answers": [
       { "text": "POST", "isCorrect": false },
       { "text": "GET", "isCorrect": true },
-      { "text": "DELETE", "isCorrect": false }
+      { "text": "DELETE", "isCorrect": false },
+      { "text": "PUT", "isCorrect": false }
     ]
   },
   {
@@ -60,7 +67,8 @@
     "answers": [
       { "text": "Архитектура UI", "isCorrect": false },
       { "text": "Архитектурный паттерн", "isCorrect": true },
-      { "text": "Тип виджета", "isCorrect": false }
+      { "text": "Тип виджета", "isCorrect": false },
+      { "text": "Flutter-библиотека", "isCorrect": false }
     ]
   },
   {
@@ -68,7 +76,8 @@
     "answers": [
       { "text": "Отрисовка UI", "isCorrect": false },
       { "text": "Хранение и обработка логики", "isCorrect": true },
-      { "text": "Работа с HTTP напрямую", "isCorrect": false }
+      { "text": "Работа с HTTP напрямую", "isCorrect": false },
+      { "text": "Навигация между экранами", "isCorrect": false }
     ]
   },
   {
@@ -76,7 +85,8 @@
     "answers": [
       { "text": "Зависимости направлены внутрь", "isCorrect": true },
       { "text": "Вся логика в UI", "isCorrect": false },
-      { "text": "Нет слоёв", "isCorrect": false }
+      { "text": "Нет слоёв", "isCorrect": false },
+      { "text": "Только один модуль", "isCorrect": false }
     ]
   },
   {
@@ -84,7 +94,8 @@
     "answers": [
       { "text": "Navigator.push", "isCorrect": true },
       { "text": "setState()", "isCorrect": false },
-      { "text": "FutureBuilder", "isCorrect": false }
+      { "text": "FutureBuilder", "isCorrect": false },
+      { "text": "StreamBuilder", "isCorrect": false }
     ]
   },
   {
@@ -92,7 +103,8 @@
     "answers": [
       { "text": "home_screen.dart", "isCorrect": false },
       { "text": "main.dart", "isCorrect": true },
-      { "text": "pubspec.yaml", "isCorrect": false }
+      { "text": "pubspec.yaml", "isCorrect": false },
+      { "text": "app.dart", "isCorrect": false }
     ]
   }
 ]

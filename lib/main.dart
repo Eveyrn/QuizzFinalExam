@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'ui/screens/home_screen.dart';
-import 'viewmodels/quiz_viewmodel.dart';
-import 'data/question_repository.dart';
+import 'viewmodels/home_viewmodel.dart';
 
 void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (_) => QuizViewModel(QuestionRepository())..loadQuiz(),
-      child: const QuizApp(),
-    ),
-  );
+  runApp(const QuizApp());
 }
 
 class QuizApp extends StatelessWidget {
@@ -19,9 +12,17 @@ class QuizApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+    return ChangeNotifierProvider(
+      create: (_) => HomeViewModel(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          scaffoldBackgroundColor: const Color(0xFFF5F6FA),
+        ),
+        home: const HomeScreen(),
+      ),
     );
   }
 }

@@ -1,59 +1,47 @@
 import 'package:flutter/material.dart';
-import '../../viewmodels/quiz_viewmodel.dart';
-import 'home_screen.dart';
 
 class ResultScreen extends StatelessWidget {
-  final QuizViewModel viewModel;
+  final int correct;
+  final int total;
 
-  const ResultScreen({super.key, required this.viewModel});
-
-  String _getResultText(double percent) {
-    if (percent >= 80) return 'Отлично';
-    if (percent >= 50) return 'Хорошо';
-    return 'Нужно подтянуть';
-  }
+  const ResultScreen({
+    super.key,
+    required this.correct,
+    required this.total, required int score,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final total = viewModel.total;
-    final correct = viewModel.correctAnswers;
-    final double percent =
-    total == 0 ? 0.0 : (correct / total) * 100.0;
+    final percent = ((correct / total) * 100).round();
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Результат'),
-        automaticallyImplyLeading: false,
-      ),
+      appBar: AppBar(title: const Text('Результат')),
       body: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '$correct из $total',
+              '$correct / $total',
               style: const TextStyle(
-                fontSize: 28,
+                fontSize: 36,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
             Text(
-              _getResultText(percent),
+              '$percent%',
               style: const TextStyle(fontSize: 20),
             ),
-            const SizedBox(height: 32),
+            const SizedBox(height: 40),
             SizedBox(
               width: double.infinity,
+              height: 56,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(builder: (_) => const HomeScreen()),
-                        (_) => false,
-                  );
+                  Navigator.popUntil(context, (r) => r.isFirst);
                 },
-                child: const Text('На главный экран'),
+                child: const Text('На главную'),
               ),
             ),
           ],

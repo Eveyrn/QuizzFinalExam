@@ -4,53 +4,46 @@ import '../data/question_repository.dart';
 import '../models/question.dart';
 
 class QuizViewModel extends ChangeNotifier {
-  final QuestionRepository _repository;
+  final QuestionRepository repository;
 
-  QuizViewModel(this._repository);
+  QuizViewModel(this.repository);
+
+  static const int questionDuration = 15;
 
   List<Question> _questions = [];
-  bool _isLoading = true;
-
   int _currentIndex = 0;
-  int _correctAnswers = 0;
+  int _correct = 0;
   int _score = 0;
-  int? _selectedAnswer;
+  int? _selectedIndex;
 
-  // ⏱ TIMER
-  final int questionDuration = 15;
-  int _remainingSeconds = 15;
+  int _secondsLeft = questionDuration;
   Timer? _timer;
 
-  // ─── GETTERS ───────────────────────────────
+  bool _isLoading = true;
+
+  // GETTERS
   bool get isLoading => _isLoading;
   int get currentIndex => _currentIndex;
-
   int get total => _questions.length;
-  int get totalQuestions => total;
-
-  int get correctAnswers => _correctAnswers;
+  int get correct => _correct;
   int get score => _score;
-
-  int? get selectedIndex => _selectedAnswer;
-  int? get selectedAnswer => selectedIndex;
-
-  int get remainingSeconds => _remainingSeconds;
-  bool get hasSelected => _selectedAnswer != null;
-
-  Question get currentQuestion => _questions[_currentIndex];
+  int get secondsLeft => _secondsLeft;
+  int? get selectedIndex => _selectedIndex;
+  bool get hasSelected => _selectedIndex != null;
   bool get isFinished => _currentIndex >= _questions.length;
 
-  // ─── LOAD ─────────────────────────────────
+  Question get currentQuestion => _questions[_currentIndex];
+
+  // LOAD
   Future<void> loadQuiz() async {
     _isLoading = true;
     notifyListeners();
 
-    _questions = await _repository.loadQuestions();
-
+    _questions = await repository.loadQuestions();
     _currentIndex = 0;
-    _correctAnswers = 0;
+    _correct = 0;
     _score = 0;
-    _selectedAnswer = null;
+    _selectedIndex = null;
 
     _startTimer();
 
@@ -58,15 +51,15 @@ class QuizViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ─── TIMER ────────────────────────────────
+  // TIMER — НЕ ОСТАНАВЛИВАЕТСЯ ПРИ ВЫБОРЕ
   void _startTimer() {
     _timer?.cancel();
-    _remainingSeconds = questionDuration;
+    _secondsLeft = questionDuration;
 
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      _remainingSeconds--;
+      _secondsLeft--;
 
-      if (_remainingSeconds <= 0) {
+      if (_secondsLeft <= 0) {
         timer.cancel();
         nextQuestion();
       }
@@ -75,31 +68,27 @@ class QuizViewModel extends ChangeNotifier {
     });
   }
 
-  // ─── ANSWER ───────────────────────────────
+  // ANSWER — БЕЗ timer.cancel()
   void selectAnswer(int index) {
-    if (_selectedAnswer != null) return;
+    if (_selectedIndex != null) return;
 
-    _selectedAnswer = index;
-    _timer?.cancel();
+    _selectedIndex = index;
 
-    final isCorrect =
-        _questions[_currentIndex].answers[index].isCorrect;
-
-    if (isCorrect) {
-      _correctAnswers++;
-      _score += _remainingSeconds * 10; // 💯 Kahoot-style
+    if (currentQuestion.answers[index].isCorrect) {
+      _correct++;
+      _score += _secondsLeft * 10;
     }
 
     notifyListeners();
   }
 
-  // ─── NEXT ─────────────────────────────────
+  // NEXT
   void nextQuestion() {
     _timer?.cancel();
 
     if (_currentIndex < _questions.length - 1) {
       _currentIndex++;
-      _selectedAnswer = null;
+      _selectedIndex = null;
       _startTimer();
     } else {
       _currentIndex++;
