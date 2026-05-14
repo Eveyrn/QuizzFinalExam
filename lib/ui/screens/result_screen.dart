@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../data/analytics_service.dart';
 
-class ResultScreen extends StatelessWidget {
+class ResultScreen extends StatefulWidget {
   final int correct;
   final int total;
 
@@ -11,8 +12,19 @@ class ResultScreen extends StatelessWidget {
   });
 
   @override
+  State<ResultScreen> createState() => _ResultScreenState();
+}
+
+class _ResultScreenState extends State<ResultScreen> {
+  @override
+  void initState() {
+    super.initState();
+    AnalyticsService().logScreenView('ResultScreen');
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final percent = ((correct / total) * 100).round();
+    final percent = ((widget.correct / widget.total) * 100).round();
 
     return Scaffold(
       appBar: AppBar(title: const Text('Результат')),
@@ -22,7 +34,7 @@ class ResultScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '$correct / $total',
+              '${widget.correct} / ${widget.total}',
               style: const TextStyle(
                 fontSize: 36,
                 fontWeight: FontWeight.bold,

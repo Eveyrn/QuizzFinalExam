@@ -5,9 +5,25 @@ import '../../data/question_repository.dart';
 import '../../viewmodels/quiz_viewmodel.dart';
 import '../../viewmodels/home_viewmodel.dart';
 import 'quiz_screen.dart';
+import 'analytics_screen.dart';
+import '../../data/push_service.dart';
+import '../../data/analytics_service.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    AnalyticsService().logScreenView('HomeScreen');
+    // Schedule pushes every time we hit home screen just in case
+    PushService().scheduleDailyPushes();
+  }
 
   String _getResultText(int percent) {
     if (percent >= 80) return 'Отлично';
@@ -43,13 +59,39 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Flutter Quiz',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Flutter Quiz',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.notifications_active, color: Colors.white),
+                          onPressed: () {
+                            PushService().showTestPush();
+                          },
+                          tooltip: 'Тестовый пуш',
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.analytics, color: Colors.white),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (_) => const AnalyticsScreen()),
+                            );
+                          },
+                          tooltip: 'Аналитика',
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 8),
                 const Text(

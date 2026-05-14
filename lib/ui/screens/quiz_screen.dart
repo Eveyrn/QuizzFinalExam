@@ -4,9 +4,21 @@ import 'package:provider/provider.dart';
 import '../../viewmodels/quiz_viewmodel.dart';
 import '../../viewmodels/home_viewmodel.dart';
 import 'result_screen.dart';
+import '../../data/analytics_service.dart';
 
-class QuizScreen extends StatelessWidget {
+class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
+
+  @override
+  State<QuizScreen> createState() => _QuizScreenState();
+}
+
+class _QuizScreenState extends State<QuizScreen> {
+  @override
+  void initState() {
+    super.initState();
+    AnalyticsService().logScreenView('QuizScreen');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +124,11 @@ class QuizScreen extends StatelessWidget {
                   ),
                   onPressed: vm.hasSelected
                       ? null
-                      : () => vm.selectAnswer(i),
+                      : () {
+                          vm.selectAnswer(i);
+                          // Log the answer to analytics
+                          AnalyticsService().logAnswer(q.question, a.text, a.isCorrect);
+                        },
                   child: Text(
                     a.text,
                     textAlign: TextAlign.center,
